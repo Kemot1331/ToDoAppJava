@@ -2,9 +2,9 @@ public class Task {
     private String name;
     private Status status;
 
-    public Task(String name){
+    public Task(String name, Status status){
         this.name = name;
-        this.status = Status.TODO;
+        this.status = status;
     }
     public String getName(){
         return name;
@@ -17,6 +17,6 @@ public class Task {
     }
 
     public String toString(){
-        return "[" + status + "] " + name;1
+        return "[" + status + "] " + name;
     }
 }

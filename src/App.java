@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         TaskManager taskManager = new TaskManager();
+        Status[] status = Status.values();
         // ArrayList<String> tasks = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
    
@@ -23,8 +24,9 @@ public class App {
                     System.out.println("Type the task name: ");
                     tempName = scanner.nextLine();
 
-                    taskManager.addTask(tempName);
+                    taskManager.addTask(tempName, taskManager.getStatusFromUser(scanner));
                     tempName = "";
+                    System.out.println("Task added");
                     break;
                 case "2":
                     taskManager.showTasks();
