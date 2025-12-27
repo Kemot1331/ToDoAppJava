@@ -7,20 +7,6 @@ public class TaskManager {
     public void addTask(String name, Status status){
         tasks.add(new Task(name, status));
     }
-    public Status getStatusFromUser(Scanner scanner){
-        Status[] status = Status.values();
-        int choice;
-        
-        do {
-            System.out.println("Select the task status");
-            for (int i = 0; i < status.length; i++) {
-                System.out.println((i + 1) + ". " + status[i]);
-            }
-            choice = scanner.nextInt();
-            scanner.nextLine();
-        } while (choice < 1 || choice > status.length);
-        return status[choice - 1];
-    }
     public boolean isEmpty(){
         return tasks.isEmpty();
     }
@@ -33,7 +19,7 @@ public class TaskManager {
         }
         int i = 1;
         for (Task task : tasks) {
-            System.out.println(i + ". " + task.toString());
+            System.out.println(i++ + ". " + task);
         }
     }
     public void removeTask(int index){

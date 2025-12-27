@@ -3,29 +3,18 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         TaskManager taskManager = new TaskManager();
-        Status[] status = Status.values();
-        // ArrayList<String> tasks = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
-   
-        String choice;
-        String tempName;
+        ConsoleUI ui = new ConsoleUI(scanner);
+
         boolean isRunning = true;
 
         while(isRunning){
-            System.out.println("TODO app java");
-            System.out.println("1.Add task");
-            System.out.println("2.List of tasks");
-            System.out.println("3.Delete task");
-            System.out.println("4.Exit the program");
-
-            choice = scanner.nextLine();
-            switch (choice) {
+            switch (ui.showMenuAndGetChoice(scanner)) {
                 case "1":
-                    System.out.println("Type the task name: ");
-                    tempName = scanner.nextLine();
-
-                    taskManager.addTask(tempName, taskManager.getStatusFromUser(scanner));
-                    tempName = "";
+                    taskManager.addTask(
+                            ui.getTaskName(scanner),
+                            ui.getStatusFromUser(scanner)
+                    );
                     System.out.println("Task added");
                     break;
                 case "2":
@@ -33,12 +22,7 @@ public class App {
                     break;
                 case "3":
                     taskManager.showTasks();
-
-                    System.out.println("Type the task's number to delete");
-                    int index = scanner.nextInt();
-                    scanner.nextLine();
-
-                    taskManager.removeTask(index);
+                    taskManager.removeTask(ui.getTaskIndex(scanner));
                     break;
                 case "4":
                     isRunning = false;
