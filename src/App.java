@@ -7,7 +7,6 @@ public class App {
         ConsoleUI ui = new ConsoleUI(scanner);
 
         boolean isRunning = true;
-
         while(isRunning){
             switch (ui.showMenuAndGetChoice(scanner)) {
                 case "1":

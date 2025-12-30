@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<Task>();
 
+
     public void addTask(String name, Status status){
         tasks.add(new Task(name, status));
     }
