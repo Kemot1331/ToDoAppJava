@@ -22,7 +22,7 @@ public class JdbcRepository implements TaskRepository{
 
     @Override
     public List<Task> findAll() throws SQLException {
-        String sql = "SELECT name, status FROM task";
+        String sql = "SELECT * FROM task";
         List<Task> tasks = new ArrayList<>();
 
         try(Connection conn = DatabaseConnection.getConnection();
@@ -31,10 +31,11 @@ public class JdbcRepository implements TaskRepository{
         ){
             while(rs.next()){
                 tasks.add(
-                        new Task(
-                                rs.getString("name"),
-                                Status.valueOf(rs.getString("status"))
-                        )
+                    new Task(
+                            rs.getLong("id"),
+                            rs.getString("name"),
+                            Status.valueOf(rs.getString("status"))
+                    )
                 );
             }
         } catch (Exception e) {

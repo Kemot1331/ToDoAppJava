@@ -2,7 +2,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        TaskManager taskManager = new TaskManager();
+
+        TaskRepository taskRepository = new JdbcRepository();
+        TaskManager taskManager = new TaskManager(taskRepository);
+
         Scanner scanner = new Scanner(System.in);
         ConsoleUI ui = new ConsoleUI(scanner);
 

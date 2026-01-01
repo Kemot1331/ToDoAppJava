@@ -1,21 +1,23 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskManager {
-    private ArrayList<Task> tasks = new ArrayList<Task>();
+//    private ArrayList<Task> tasks = new ArrayList<Task>();
+    private final TaskRepository repository;
 
+    public TaskManager(TaskRepository repository) {
+        this.repository = repository;
+    }
 
-    public void addTask(String name, Status status){
-        tasks.add(new Task(name, status));
+    public void addTask(String name, Status status) throws SQLException {
+        repository.addTask(new Task(name, status));
     }
-    public boolean isEmpty(){
-        return tasks.isEmpty();
-    }
-    public int size(){
-        return tasks.size();
-    }
-    public void showTasks(){
-        if(isEmpty()){
+    public void showTasks() throws SQLException {
+        List<Task> tasks = repository.findAll();
+
+        if(tasks.isEmpty()){
             System.out.println("The list is empty");
         }
         int i = 1;
@@ -23,12 +25,17 @@ public class TaskManager {
             System.out.println(i++ + ". " + task);
         }
     }
-    public void removeTask(int index){
-        if(index >= 1 && index <= size()){
-            tasks.remove(index - 1);
+    public void removeTask(int choice) throws SQLException {
+        List<Task> tasks = repository.findAll();
+
+        if(choice < 1 || choice > tasks.size()){
+            System.out.println("Incorrect number");
+            return;
         }
-        else{
-            System.out.println("Incorrect number!");
-        }
+            Task selectedTask = tasks.get(choice - 1);
+            Long id = selectedTask.getId();
+
+            repository.deleteTaskById(id);
+            System.out.println("Task deleted");
     }
 }
