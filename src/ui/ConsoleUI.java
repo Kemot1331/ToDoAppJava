@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class ConsoleUI {
     private final Scanner scanner;
 
-
     public ConsoleUI(Scanner scanner) {
         this.scanner = scanner;
     }

@@ -2,7 +2,7 @@ package domain;
 
 public class Task {
     private Long id;
-    private String name;
+    private final String name;
     private Status status;
 
     public Task(Long id, String name, Status status){
@@ -19,9 +19,6 @@ public class Task {
     }
     public Status getStatus(){
         return status;
-    }
-    public void setStatus(Status status){
-        this.status = status;
     }
     public String toString(){
         return "[" + status + "] " + name;

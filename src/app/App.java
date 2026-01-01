@@ -8,7 +8,7 @@ import ui.ConsoleUI;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    void main() throws Exception {
 
         TaskRepository taskRepository = new JdbcRepository();
         TaskManager taskManager = new TaskManager(taskRepository);

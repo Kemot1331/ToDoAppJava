@@ -26,7 +26,7 @@ public class JdbcRepository implements TaskRepository {
     }
 
     @Override
-    public List<Task> findAll() throws SQLException {
+    public List<Task> findAll(){
         String sql = "SELECT * FROM task";
         List<Task> tasks = new ArrayList<>();
 
