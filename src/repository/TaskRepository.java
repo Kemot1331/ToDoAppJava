@@ -1,3 +1,8 @@
+package repository;
+
+import domain.Status;
+import domain.Task;
+
 import java.sql.SQLException;
 import java.util.List;
 

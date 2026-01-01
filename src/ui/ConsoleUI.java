@@ -1,3 +1,7 @@
+package ui;
+
+import domain.Status;
+
 import java.util.Scanner;
 
 public class ConsoleUI {

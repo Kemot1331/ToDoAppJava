@@ -1,10 +1,14 @@
+package service;
+
+import domain.Status;
+import domain.Task;
+import repository.TaskRepository;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class TaskManager {
-//    private ArrayList<Task> tasks = new ArrayList<Task>();
+//    private ArrayList<domain.Task> tasks = new ArrayList<domain.Task>();
     private final TaskRepository repository;
 
     public TaskManager(TaskRepository repository) {
@@ -36,6 +40,6 @@ public class TaskManager {
             Long id = selectedTask.getId();
 
             repository.deleteTaskById(id);
-            System.out.println("Task deleted");
+            System.out.println("domain.Task deleted");
     }
 }

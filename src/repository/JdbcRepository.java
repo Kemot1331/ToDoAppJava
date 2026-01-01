@@ -1,3 +1,8 @@
+package repository;
+
+import domain.Status;
+import domain.Task;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -5,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcRepository implements TaskRepository{
+public class JdbcRepository implements TaskRepository {
 
     @Override
     public void addTask(Task task) throws SQLException {

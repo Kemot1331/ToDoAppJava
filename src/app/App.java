@@ -1,3 +1,10 @@
+package app;
+
+import repository.JdbcRepository;
+import repository.TaskRepository;
+import service.TaskManager;
+import ui.ConsoleUI;
+
 import java.util.Scanner;
 
 public class App {
@@ -17,7 +24,7 @@ public class App {
                             ui.getTaskName(scanner),
                             ui.getStatusFromUser(scanner)
                     );
-                    System.out.println("Task added");
+                    System.out.println("domain.Task added");
                     break;
                 case "2":
                     taskManager.showTasks();
