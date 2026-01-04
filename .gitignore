@@ -4,3 +4,4 @@ target/
  *.iws
  out/
  .class
+src/application.properties

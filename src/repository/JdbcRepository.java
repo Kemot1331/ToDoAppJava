@@ -1,5 +1,6 @@
 package repository;
 
+import config.DatabaseConnection;
 import domain.Status;
 import domain.Task;
 

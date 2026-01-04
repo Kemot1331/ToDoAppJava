@@ -38,9 +38,12 @@ public class TaskManager {
             return;
         }
         Task selectedTask = tasks.get(choice - 1);
-
         Long id = selectedTask.getId();
-        repository.updateTask(id, newName, newStatus);
+        repository.updateTask(
+                id,
+                newName,
+                newStatus
+        );
         System.out.println("Task updated");
     }
 

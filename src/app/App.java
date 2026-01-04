@@ -1,6 +1,6 @@
 package app;
 
-import repository.DatabaseConnection;
+import config.DatabaseConnection;
 import repository.JdbcRepository;
 import repository.TaskRepository;
 import service.TaskManager;
