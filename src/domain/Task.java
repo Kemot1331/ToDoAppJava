@@ -2,7 +2,7 @@ package domain;
 
 public class Task {
     private Long id;
-    private final String name;
+    private String name;
     private Status status;
 
     public Task(Long id, String name, Status status){

@@ -29,6 +29,21 @@ public class TaskManager {
             System.out.println(i++ + ". " + task);
         }
     }
+
+    public void updateTask(int choice, String newName, Status newStatus) throws SQLException {
+        List<Task> tasks = repository.findAll();
+
+        if(choice < 1 || choice > tasks.size()) {
+            System.out.println("Incorrect number");
+            return;
+        }
+        Task selectedTask = tasks.get(choice - 1);
+
+        Long id = selectedTask.getId();
+        repository.updateTask(id, newName, newStatus);
+        System.out.println("Task updated");
+    }
+
     public void removeTask(int choice) throws SQLException {
         List<Task> tasks = repository.findAll();
 

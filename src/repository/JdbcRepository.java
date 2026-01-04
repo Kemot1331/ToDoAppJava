@@ -50,14 +50,17 @@ public class JdbcRepository implements TaskRepository {
     }
 
     @Override
-    public void updateStatus(Long id, Status status) {
-        String sql = "UPDATE task SET status = ? WHERE id = ?";
+    public void updateTask(Long id, String newName, Status newStatus) {
+
+        String sql = "UPDATE task SET name = ?, status = ? WHERE id = ?";
 
         try(Connection conn = DatabaseConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)
         ){
-            stmt.setString(1, status.name());
-            stmt.setLong(2, id);
+            stmt.setString(1, newName);
+            stmt.setString(2, newStatus.name());
+            stmt.setLong(3, id);
+
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("DB error", e);

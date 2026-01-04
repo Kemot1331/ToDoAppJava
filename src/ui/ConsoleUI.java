@@ -15,7 +15,8 @@ public class ConsoleUI {
         System.out.println("1.Add task");
         System.out.println("2.List of tasks");
         System.out.println("3.Delete task");
-        System.out.println("4.Exit the program");
+        System.out.println("4.Edit task");
+        System.out.println("5.Exit the program");
         return scanner.nextLine();
 
     }

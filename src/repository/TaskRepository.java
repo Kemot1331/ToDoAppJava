@@ -9,7 +9,6 @@ import java.util.List;
 public interface TaskRepository {
     void addTask(Task task) throws SQLException;
     List<Task> findAll() throws SQLException;
-    void updateStatus(Long id, Status status);
-
+    void updateTask(Long id, String newName, Status newStatus);
     void deleteTaskById(Long id);
 }
